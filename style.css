@@ -10,6 +10,8 @@ body {
   overflow-x: hidden;
 }
 
+
+
 /* GALLERY */
 #gallery-page {
   min-height: 100vh;
@@ -62,6 +64,7 @@ nav a {
 }
 
 
+
 /* HACKER SCREEN */
 #hacker-screen {
   position: fixed;
@@ -78,6 +81,7 @@ nav a {
 .matrix {
   position: absolute;
   inset: 0;
+
   background: repeating-linear-gradient(
     0deg,
     rgba(0,255,120,0.04),
@@ -85,10 +89,12 @@ nav a {
     transparent 2px,
     transparent 4px
   );
+
   animation: move 5s linear infinite;
 }
 
 @keyframes move {
+
   from {
     transform: translateY(0);
   }
@@ -96,6 +102,7 @@ nav a {
   to {
     transform: translateY(100px);
   }
+
 }
 
 .hacker-content {
@@ -110,6 +117,7 @@ nav a {
 }
 
 @keyframes pulse {
+
   0% {
     transform: scale(1);
   }
@@ -121,6 +129,7 @@ nav a {
   100% {
     transform: scale(1);
   }
+
 }
 
 .loading-bar {
@@ -140,6 +149,7 @@ nav a {
 }
 
 @keyframes loading {
+
   from {
     width: 0;
   }
@@ -147,10 +157,12 @@ nav a {
   to {
     width: 100%;
   }
+
 }
 
 
-/* ANIME UI */
+
+/* MAIN UI */
 #anime-ui {
   min-height: 100vh;
   display: none;
@@ -158,6 +170,9 @@ nav a {
   background: #f5f6ff;
 }
 
+
+
+/* NAVBAR */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -184,41 +199,124 @@ nav a {
   border-radius: 20px;
 }
 
+
+
+/* BANNER */
 .main-banner {
-  height: 350px;
+  position: relative;
+  overflow: hidden;
+
+  min-height: 650px;
+
   border-radius: 35px;
-  background: linear-gradient(135deg, #8da2ff, #6d79ff);
-  display: flex;
-  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #8da2ff,
+    #6d79ff
+  );
+
   padding: 50px;
+
   color: white;
+
+  display: flex;
+  align-items: flex-start;
 }
 
-.banner-text h1 {
-  font-size: 70px;
+
+
+/* TEXT */
+.banner-text {
+  position: relative;
+  z-index: 5;
+  max-width: 55%;
+}
+
+.banner-text h2 {
+  font-size: 58px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.banner-text p {
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .banner-text button {
-  margin-top: 20px;
+  margin-top: 25px;
+
   padding: 12px 20px;
+
   border: none;
   border-radius: 20px;
+
+  background: white;
+  color: black;
 }
 
+
+
+/* CONFETTI CAT */
+.banner-confetti {
+  position: absolute;
+
+  right: 5px;
+  bottom: -4px;
+
+  z-index: 1;
+}
+
+.banner-confetti img {
+  width: 450px;
+}
+
+
+
+/* FLOAT */
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+
+
+/* PANELS */
 .dashboard-grid {
   margin-top: 30px;
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 20px;
 }
 
 .panel {
   background: white;
+
   border-radius: 25px;
+
   padding: 20px;
+
   min-height: 250px;
 }
 
+
+
+/* ARTWORK */
 .mini-cards {
   display: flex;
   gap: 15px;
@@ -228,27 +326,52 @@ nav a {
 .mini-cards div {
   width: 120px;
   height: 160px;
+
   border-radius: 20px;
-  background: linear-gradient(135deg, #6f7ff7, #2e3477);
+
+  background: linear-gradient(
+    135deg,
+    #6f7ff7,
+    #2e3477
+  );
 }
 
+
+
+/* SEARCHES */
 .searches ul {
   margin-top: 20px;
+
   display: flex;
   flex-direction: column;
+
   gap: 15px;
 }
 
 .searches li {
   list-style: none;
+
   background: #edf0ff;
+
   padding: 15px;
+
   border-radius: 15px;
 }
 
 
-/* RESPONSIVE */
+
+/* ANIMATIONS */
+#gallery-page,
+#hacker-screen,
+#anime-ui {
+  transition: all 1s ease;
+}
+
+
+
+/* TABLET */
 @media (max-width: 900px) {
+
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -257,27 +380,60 @@ nav a {
     grid-template-columns: 1fr;
   }
 
-  .main-banner {
-    height: auto;
-    padding: 30px;
-  }
-
-  .banner-text h1 {
-    font-size: 50px;
-  }
 }
 
-@media (max-width: 600px) {
-  header,
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+
   .top-nav {
     flex-direction: column;
     gap: 20px;
   }
 
-  .menu,
-  nav {
+  .menu {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .main-banner {
+
+    min-height: 950px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+  }
+
+  .banner-text {
+    max-width: 100%;
+    z-index: 5;
+  }
+
+  .banner-text h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .banner-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .banner-confetti {
+
+    right: 50%;
+    transform: translateX(50%);
+
+    bottom: -5px;
+  }
+
+  .banner-confetti img {
+    width: 340px;
   }
 
   .cards {
@@ -288,44 +444,8 @@ nav a {
     font-size: 35px;
   }
 
-  .banner-text h1 {
-    font-size: 40px;
-  }
-
   .loading-bar {
     width: 220px;
   }
-}
-#gallery-page,
-#hacker-screen,
-#anime-ui {
-  transition: all 1s ease;
-}
-.confetti-section {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.info {
-  position: relative;
-  overflow: hidden;
-}
 
-.main-banner {
-  position: relative;
-  overflow: hidden;
-}
-
-.banner-confetti {
-  position: absolute;
-  right: 20px;
-  bottom: -4px;
-}
-
-.banner-confetti img {
-  width: 350px;
-  animation: float 3s ease-in-out infinite;
-
-  margin-top: -100px;
 }
